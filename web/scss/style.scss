@@ -25,7 +25,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 
 $primary : #000;
 $primaryLight:#fff;
-$secondary:#ffff;
+$secondary:#3f3f3f;
 $secondaryLight:#ffdd;
 
 $break1200:1200px;
@@ -67,13 +67,16 @@ body{
 
 /*--------------------GLOBAL--------------------*/
 
-// .text{
+.text{
+	color: $secondary;
+	letter-spacing: 1px;
+}
 
-// }
-
-// .title{
-
-// }
+.title{
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: $primary;
+}
 
 /*--------------------/GLOBAL--------------------*/
 
@@ -83,7 +86,7 @@ body{
 
 .header {
 
-	background-color: #ffffff;
+	background-color: $primaryLight;
 	position: fixed;
 	width: 100%;
 
@@ -103,7 +106,7 @@ body{
     font-size: 20px;
 	font-weight: bold;
 	text-decoration: none;
-	color: #000000;
+	color: $primary;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -113,6 +116,10 @@ body{
         max-height: 30px;
         border-radius: 100%;
     }
+	@media(max-width: $break480)
+	{
+		font-size: 16px;
+	}
 }
 .menu {
 
@@ -132,8 +139,9 @@ body{
 				top: calc(50% - 1px);
 				left: 0;
 				width: 100%;
-				background-color: #000000;
-				height: 2px;
+				background-color: $primary;
+				height: 3px;
+				border-radius: 20%;
 				transition: all 0.3s ease 0s;
 				&:first-child{
 					top:0;
@@ -168,7 +176,7 @@ body{
 			left: -100%;
 			height: 100vh;
 			width: 100%;
-			background-color: #ffffff;
+			background-color: $primaryLight;
 			display: flex;
 			transition: all 0.3s;
 			overflow: auto;
@@ -202,7 +210,7 @@ body{
 	&-link {
 		font-size: 16px;
 		color: #484848;
-        &:hover,.active
+        &:hover
         {
             color: #000;
         }
@@ -235,6 +243,54 @@ body{
 
 /*--------------------FOOTER--------------------*/
 
+.footer {
 
+	background-color: $primaryLight;
+	max-height: 200px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+
+	/* .footer-wrapper */
+
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 20px;
+		padding-bottom: 20px;
+
+		@media (max-width:$break480)
+		{
+			flex-direction: column;
+			gap: 20px;
+			align-items: center;
+		}
+	}
+
+	/* .footer-list */
+
+	&-list {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+	/* .footer-icon */
+
+	&-icon {
+		width: clamp(1.5rem, 1.273rem + 1.14vw, 2.125rem);
+		opacity: 80%;
+		&:hover
+		{
+			opacity: 100%;
+		}
+	}
+
+	/* .footer-copyrigth */
+
+	&-copyrigth {
+		font-size:clamp(0.688rem, 0.619rem + 0.34vw, 0.875rem);
+	}
+}
 
 /*--------------------/FOOTER--------------------*/
