@@ -111,6 +111,7 @@ body.lock {
   background-color: #fff;
   position: fixed;
   width: 100%;
+  border-bottom: 2px solid #3f3f3f;
 }
 .header-container {
   display: flex;
@@ -236,6 +237,69 @@ body.lock {
 
 /*--------------------/HEADER--------------------*/
 /*--------------------MAIN--------------------*/
+.main {
+  /* .main-container */
+}
+.main-container {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.map {
+  width: 70%;
+}
+
+.sidebar {
+  background-color: #fff;
+  width: 30%;
+  flex: 1;
+  overflow-y: auto;
+  /* .sidebar-container */
+  /* .sidebar-title */
+  /* .sidebar-content */
+  /* .sidebar-item */
+}
+.sidebar-container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-title {
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3f3f3f;
+}
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 5px 20px 5px;
+  border-bottom: 1px solid #3f3f3f;
+}
+.sidebar-item-heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.sidebar-item-icon img {
+  max-width: 40px;
+}
+.sidebar-item-text {
+  line-height: 20px;
+}
+
 /*--------------------/MAIN--------------------*/
 /*--------------------FOOTER--------------------*/
 .footer {
@@ -244,6 +308,7 @@ body.lock {
   position: fixed;
   bottom: 0;
   width: 100%;
+  border-top: 2px solid #3f3f3f;
   /* .footer-wrapper */
   /* .footer-list */
   /* .footer-icon */
