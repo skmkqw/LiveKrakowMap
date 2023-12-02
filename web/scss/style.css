@@ -141,7 +141,7 @@ body.lock {
     top: calc(50% - 1px);
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: #000000;
     height: 2px;
     transition: all 0.3s ease 0s;
   }
