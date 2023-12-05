@@ -21,8 +21,8 @@
                     <ul class="menu-list">
                         <li class="menu-item"><a href="#" class="menu-link active text tabs-title" data-tab="news">News</a></li>
                         <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="language">Language</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link text tabs-title">Info</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link text tabs-title">Add Event</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="info">Info</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="add-event">Add Event</a></li>
                     </ul>
                 </nav>
             </div>
@@ -77,7 +77,109 @@
                         </div>
                     </div>
                     <div class="language tab hidden" id="language">
-                        <b>Language</b>
+                        <div class="sidebar-title title">Languages</div>
+                        <div class="sidebar-content">
+                            <div class="sidebar-item language-item">English</div>
+                            <div class="sidebar-item language-item">Polski</div>
+                            <div class="sidebar-item language-item">Украиньска</div>
+                            <div class="sidebar-item language-item">Русский</div>
+                        </div>
+                    </div>
+                    <div class="info tab hidden" id="info">
+                        <div class="sidebar-title title">Info</div>
+                        <div class="sidebar-content">
+                            <div class="sidebar-item info-item">
+                                <div class="info-title title">Colors on the map</div>
+                                <div class="info-content">
+                                    <ul class="info-list">
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-circle" id="government"></div>
+                                            <div class="info-list-element-text text">Government</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-circle" id="criminals"></div>
+                                            <div class="info-list-element-text text">Criminals</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-circle" id="groups"></div>
+                                            <div class="info-list-element-text text">Non-government groups</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-circle" id="nature"></div>
+                                            <div class="info-list-element-text text">Nature</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-item info-item">
+                                <div class="info-title title">Areas</div>
+                                <div class="info-content">
+                                    <ul class="info-list">
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-img"><span id="fire"></span></div>
+                                            <div class="info-list-element-text text">Wildfires</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-img"><span id="flood"></span></div>
+                                            <div class="info-list-element-text text">Flood warnings</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-img"><span id="storm"></span></div>
+                                            <div class="info-list-element-text text">Storm warning</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-item info-item">
+                                <div class="info-title title">Icons</div>
+                                <div class="info-content">
+                                    <ul class="info-list">
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-img"><img src="/src/img/car-logo.png" alt=""></div>
+                                            <div class="info-list-element-text text">Car accidents</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-img"><img src="/src/img/balaclava-logo.png" alt=""></div>
+                                            <div class="info-list-element-text text">Robberies</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-img"><img src="/src/img/fire-logo.png" alt=""></div>
+                                            <div class="info-list-element-text text">Fire</div>
+                                        </li>
+                                        <li class="info-list-element">
+                                            <div class="info-list-element-img"><img src="/src/img/police-logo.jpeg" alt=""></div>
+                                            <div class="info-list-element-text text">Police</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event tab hidden" id="add-event">
+                        <div class="sidebar-title title">Add Event</div>
+                        <div class="sidebar-content">
+                            <form action="/submit-event" method="post" class="event-form">
+
+                                <div class="event-form-group">
+                                    <label for="title" class="text">Title:</label>
+                                    <input type="text" id="title" name="title" required>
+                                </div>
+
+                                <div class="event-form-group">
+                                    <label for="description">Description:</label>
+                                    <input id="description" name="description" rows="4" required></textarea>
+                                </div>
+
+                                <div class="event-form-group">
+                                    <label for="description">Location:</label>
+                                    <button type="button" id="addLocationBtn" class="event-location btn">Add Location</button>
+                                </div>
+
+                                <div class="event-form-group">
+                                    <button type="submit" class="event-submit btn">Submit</button>
+                                </div>
+                                </form>
+                        </div>
                     </div>
                 </div>
             </div>
