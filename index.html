@@ -19,10 +19,10 @@
                 </div>
                 <nav class="menu-body">
                     <ul class="menu-list">
-                        <li class="menu-item"><a href="#" class="menu-link active text">News</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link text">Language</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link text">Info</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link text">Add Event</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link active text tabs-title" data-tab="news">News</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="language">Language</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link text tabs-title">Info</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link text tabs-title">Add Event</a></li>
                     </ul>
                 </nav>
             </div>
@@ -35,44 +35,49 @@
             </div>
             <div class="sidebar">
                 <div class="sidebar-container">
-                    <div class="sidebar-title title">Title</div>
-                    <div class="sidebar-content">
-                        <div class="sidebar-item">
-                            <div class="sidebar-item-heading">
-                                <div class="sidebar-item-icon"><img src="/src/img/police-logo.jpeg" alt=""></div>
-                                <div class="sidebar-item-datetime text">1 hour ago</div>
+                    <div class="news tab hidden" id="news">
+                        <div class="sidebar-title title">News</div>
+                        <div class="sidebar-content">
+                            <div class="sidebar-item">
+                                <div class="sidebar-item-heading">
+                                    <div class="sidebar-item-icon"><img src="/src/img/police-logo.jpeg" alt=""></div>
+                                    <div class="sidebar-item-datetime text">1 hour ago</div>
+                                </div>
+                                <div class="sidebar-item-content">
+                                    <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
+                                </div>
                             </div>
-                            <div class="sidebar-item-content">
-                                <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
+                            <div class="sidebar-item">
+                                <div class="sidebar-item-heading">
+                                    <div class="sidebar-item-icon"><img src="/src/img/fire-logo.png" alt=""></div>
+                                    <div class="sidebar-item-datetime text">2 hour ago</div>
+                                </div>
+                                <div class="sidebar-item-content">
+                                    <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
+                                </div>
+                            </div>
+                            <div class="sidebar-item">
+                                <div class="sidebar-item-heading">
+                                    <div class="sidebar-item-icon"><img src="/src/img/balaclava-logo.png" alt=""></div>
+                                    <div class="sidebar-item-datetime text">3 hours ago</div>
+                                </div>
+                                <div class="sidebar-item-content">
+                                    <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
+                                </div>
+                            </div>
+                            <div class="sidebar-item">
+                                <div class="sidebar-item-heading">
+                                    <div class="sidebar-item-icon"><img src="/src/img/car-logo.png" alt=""></div>
+                                    <div class="sidebar-item-datetime text">4 hour ago</div>
+                                </div>
+                                <div class="sidebar-item-content">
+                                    <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="sidebar-item">
-                            <div class="sidebar-item-heading">
-                                <div class="sidebar-item-icon"><img src="/src/img/fire-logo.png" alt=""></div>
-                                <div class="sidebar-item-datetime text">2 hour ago</div>
-                            </div>
-                            <div class="sidebar-item-content">
-                                <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
-                            </div>
-                        </div>
-                        <div class="sidebar-item">
-                            <div class="sidebar-item-heading">
-                                <div class="sidebar-item-icon"><img src="/src/img/balaclava-logo.png" alt=""></div>
-                                <div class="sidebar-item-datetime text">3 hours ago</div>
-                            </div>
-                            <div class="sidebar-item-content">
-                                <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
-                            </div>
-                        </div>
-                        <div class="sidebar-item">
-                            <div class="sidebar-item-heading">
-                                <div class="sidebar-item-icon"><img src="/src/img/car-logo.png" alt=""></div>
-                                <div class="sidebar-item-datetime text">4 hour ago</div>
-                            </div>
-                            <div class="sidebar-item-content">
-                                <div class="sidebar-item-text text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facere eaque minima maiores quas corporis.</div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="language tab hidden" id="language">
+                        <b>Language</b>
                     </div>
                 </div>
             </div>
@@ -94,6 +99,7 @@
             </div>
         </div>
     </footer>
+    <script src="/web/js/tabs.js"></script>
     <script src="/web/js/burger.js"></script>
     <script src="/web/js/menu_links.js"></script>
 </body>

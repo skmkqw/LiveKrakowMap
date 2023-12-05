@@ -300,6 +300,10 @@ body.lock {
   line-height: 20px;
 }
 
+.tab.hidden {
+  display: none;
+}
+
 /*--------------------/MAIN--------------------*/
 /*--------------------FOOTER--------------------*/
 .footer {
