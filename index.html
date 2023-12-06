@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/web/scss/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
     <header class="header">
         <div class="container header-container">
-            <a href="index.html" class="logo title">
-                <img src="/src/img/logo.png" alt="" class="logo-img">
+            <a href="index.html" class="logo">
+                <div class="logo-container">
+                    <img src="/src/img/logo-red.png" alt="" class="logo-img">
+                </div>
                 Krakow Live Map
             </a>
             <div class="header-menu menu">
@@ -23,6 +27,7 @@
                         <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="language">Language</a></li>
                         <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="info">Info</a></li>
                         <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="add-event">Add Event</a></li>
+                        <li class="menu-item"><a href="/"><button class="btn-hover btn">Login</button></a></li>
                     </ul>
                 </nav>
             </div>
@@ -30,8 +35,8 @@
     </header>
     <main class="main">
         <div class="main-container">
-            <div class="map">
-
+            <div class="map" id="map">
+                <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=19.824314117431644%2C50.013144588751366%2C20.028591156005863%2C50.09679819285975&amp;layer=hot" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/50.0550/19.9265&amp;layers=H">Посмотреть более крупную карту</a></small>
             </div>
             <div class="sidebar">
                 <div class="sidebar-container">
@@ -172,11 +177,11 @@
 
                                 <div class="event-form-group">
                                     <label for="description">Location:</label>
-                                    <button type="button" id="addLocationBtn" class="event-location btn">Add Location</button>
+                                    <button type="button" id="addLocationBtn" class="event-location btn btn-hover">Add Location</button>
                                 </div>
 
                                 <div class="event-form-group">
-                                    <button type="submit" class="event-submit btn">Submit</button>
+                                    <button type="submit" class="event-submit btn btn-hover">Submit</button>
                                 </div>
                                 </form>
                         </div>
@@ -190,13 +195,13 @@
             <div class="footer-wrapper">
                 <div class="footer-links">
                     <ul class="footer-list">
-                        <li class="footer-item"><a href="" class="footer-link"><img src="/src/img/facebook-icon.png" alt="" class="footer-icon"></a></li>
-                        <li class="footer-item"><a href="" class="footer-link"><img src="/src/img/instagram-icon.png" alt="" class="footer-icon"></a></li>
-                        <li class="footer-item"><a href="" class="footer-link"><img src="/src/img/twitter-icon.png" alt="" class="footer-icon"></a></li>
+                        <li class="footer-item"><a href="" class="footer-link"><img src="/src/img/facebook-red.png" alt="" class="footer-icon"></a></li>
+                        <li class="footer-item"><a href="" class="footer-link"><img src="/src/img/instagram-red.png" alt="" class="footer-icon"></a></li>
+                        <li class="footer-item"><a href="" class="footer-link"><img src="/src/img/twitter-red.png" alt="" class="footer-icon"></a></li>
                     </ul>
                 </div>
                 <div class="footer-copyrigth text">
-                    <p>Authors: Timofei Korsakov/Nazar Dymuch</p>
+                    <p>Authors: Timofei Korsakov/Nazar Dumych</p>
                 </div>
             </div>
         </div>
@@ -204,5 +209,41 @@
     <script src="/web/js/tabs.js"></script>
     <script src="/web/js/burger.js"></script>
     <script src="/web/js/menu_links.js"></script>
+    <script>
+        var map = L.map('map').setView([50.062, 19.932], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map)
+
+        navigator.geolocation.watchPosition(succes, error)
+
+        function succes(position)
+        {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const accuracy = position.coords.accuracy;
+
+            var marker = L.marker([latitude, longitude]).addTo(map);
+            var circle = L.circle([latitude, longitude], {
+                color: 'blue',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: accuracy
+            }).addTo(map);
+        }
+
+        function error(error)
+        {
+            if (error.code === 1)
+            {
+                alert("Please allow geaolocation access")
+            }
+            else{
+                alert("Cannot get your location")
+            }
+        }
+    </script>
 </body>
 </html>
