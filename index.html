@@ -27,13 +27,72 @@
                         <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="language">Language</a></li>
                         <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="info">Info</a></li>
                         <li class="menu-item"><a href="#" class="menu-link text tabs-title" data-tab="add-event">Add Event</a></li>
-                        <li class="menu-item"><a href="/"><button class="btn-hover btn">Login</button></a></li>
+                        <li class="menu-item"><button class="btn-hover btn" id="login">Login</button></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     <main class="main">
+        <div class="login">
+            <div class="login-exit">
+                <span></span>
+                <span></span>
+            </div>
+            <form action="" class="login-form">
+                <h2 class="login-title">Log In</h2>
+                <div class="login-input">
+                    <label for="email">Your e-mail:</label>
+                    <input type="email" placeholder="Enter your e-mail" name="email">
+                    <label for="password">Your password:</label>
+                    <input type="password" placeholder="Enter your password" name="password">
+                </div>
+                <button type="submit" class="login-submit btn btn-hover">Log In</button>
+                <div class="login-ga">
+                    <button class="login-google login-btn">
+                        <img src="img/icons8-google.svg" alt="">
+                        Log In with Google
+                    </button>
+                    <button class="login-apple login-btn">
+                        <img src="/img/apple-logo.svg" alt="">
+                        Log In with Apple
+                    </button>
+                </div>
+                <p class="login-transfer">
+                    Dont't have an account?
+                    <a href="#" class="login-transfer-link"> Create It! </a>
+                </p>
+            </form>
+        </div>
+        
+        <div class="login signup">
+            <div class="login-exit signup-exit">
+                <span></span>
+                <span></span>
+            </div>
+            <form action="" class="login-form">
+                <h2 class="login-title">Sign Up</h2>
+                <div class="login-input">
+                    <label for="email">Your e-mail:</label>
+                    <input type="email" placeholder="Enter your e-mail" name="email">
+                    <label for="password">Your password:</label>
+                    <input type="password" placeholder="Enter your password" name="password">
+                </div>
+                <button type="submit" class="login-submit btn btn-hover">Sigh Up</button>
+                <div class="login-ga">
+                    <button class="login-google login-btn">
+                        <img src="img/icons8-google.svg" alt="">
+                        Continue with Google
+                    </button>
+                    <button class="login-apple login-btn">
+                        <img src="/img/apple-logo.svg" alt="">
+                        Continue with Apple
+                    </button>
+                </div>
+                <p class="login-transfer">Already have an account?<a href="#" class="signup-transfer-link"> Log in </a>
+                </p>
+            </form>
+        </div>
         <div class="main-container">
             <div class="map" id="map">
                 <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=19.824314117431644%2C50.013144588751366%2C20.028591156005863%2C50.09679819285975&amp;layer=hot" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/50.0550/19.9265&amp;layers=H">Посмотреть более крупную карту</a></small>
@@ -41,7 +100,7 @@
             <div class="sidebar">
                 <div class="sidebar-container">
                     <div class="news tab hidden" id="news">
-                        <div class="sidebar-title title">News</div>
+                        <!-- <div class="sidebar-title title">News</div> -->
                         <div class="sidebar-content">
                             <div class="sidebar-item">
                                 <div class="sidebar-item-heading">
@@ -82,7 +141,7 @@
                         </div>
                     </div>
                     <div class="language tab hidden" id="language">
-                        <div class="sidebar-title title">Languages</div>
+                        <!-- <div class="sidebar-title title">Languages</div> -->
                         <div class="sidebar-content">
                             <div class="sidebar-item language-item">English</div>
                             <div class="sidebar-item language-item">Polski</div>
@@ -91,7 +150,7 @@
                         </div>
                     </div>
                     <div class="info tab hidden" id="info">
-                        <div class="sidebar-title title">Info</div>
+                        <!-- <div class="sidebar-title title">Info</div> -->
                         <div class="sidebar-content">
                             <div class="sidebar-item info-item">
                                 <div class="info-title title">Colors on the map</div>
@@ -117,7 +176,7 @@
                                 </div>
                             </div>
                             <div class="sidebar-item info-item">
-                                <div class="info-title title">Areas</div>
+                                <!-- <div class="info-title title">Areas</div> -->
                                 <div class="info-content">
                                     <ul class="info-list">
                                         <li class="info-list-element">
@@ -161,7 +220,6 @@
                         </div>
                     </div>
                     <div class="event tab hidden" id="add-event">
-                        <div class="sidebar-title title">Add Event</div>
                         <div class="sidebar-content">
                             <form action="/submit-event" method="post" class="event-form">
 
@@ -209,6 +267,7 @@
     <script src="/web/js/tabs.js"></script>
     <script src="/web/js/burger.js"></script>
     <script src="/web/js/menu_links.js"></script>
+    <script src="/web/js/login.js"></script>
     <script>
         var map = L.map('map').setView([50.062, 19.932], 13);
 
@@ -224,8 +283,18 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             const accuracy = position.coords.accuracy;
-
-            var marker = L.marker([latitude, longitude]).addTo(map);
+            
+            var redIcon = new L.Icon({
+                iconUrl: '/src/img/pointer-red.png', // URL to the default marker icon
+                iconSize: [25, 41], // Size of the icon
+                iconAnchor: [12, 41], // Point of the icon which corresponds to marker's location
+                popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png', // URL to the marker's shadow image
+                shadowSize: [41, 41], // Size of the shadow
+                shadowAnchor: [12, 41] // Point from which the shadow should be positioned
+                });
+            var marker = L.marker([latitude, longitude],{icon:redIcon}).addTo(map);
+            marker.bindPopup("<b>You are there!</b>").openPopup();
             var circle = L.circle([latitude, longitude], {
                 color: 'blue',
                 fillColor: '#f03',

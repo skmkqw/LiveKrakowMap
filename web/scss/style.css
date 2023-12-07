@@ -270,6 +270,124 @@ body.lock {
 
 /*--------------------/HEADER--------------------*/
 /*--------------------MAIN--------------------*/
+.login {
+  position: absolute;
+  z-index: 100;
+  overflow: auto;
+  left: 0;
+  right: 0;
+  top: -50px;
+  bottom: 0;
+  margin: auto;
+  width: 400px;
+  height: 420px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  color: #000;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  box-shadow: 0px 5px 10px 9px rgba(34, 60, 80, 0.2);
+}
+.login.active {
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+  pointer-events: all;
+}
+@media (max-width: 500px) {
+  .login {
+    width: 340px;
+  }
+}
+@media (max-height: 480px) {
+  .login {
+    height: 100vh;
+  }
+}
+.login-exit {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 25px;
+  right: 20px;
+}
+.login-exit span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  transform: rotate(45deg);
+  background-color: #000;
+  position: absolute;
+}
+.login-exit span:last-child {
+  transform: rotate(-45deg);
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.login-title {
+  font-weight: 600;
+  font-size: 22px;
+}
+.login-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-input input {
+  border: 1px solid #b9b8b8;
+  padding: 10px;
+  border-radius: 5px;
+}
+.login-submit {
+  margin: auto;
+  width: 100%;
+}
+.login-ga {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.login-btn {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+.login-btn img {
+  width: 20px;
+  height: auto;
+}
+.login-google {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #b9b8b8;
+}
+.login-google:hover {
+  background: #b9b8b8;
+}
+.login-apple {
+  background-color: #000;
+  color: #fff;
+}
+.login-apple:hover {
+  background: #1d1d1d;
+}
+.login-apple img {
+  width: 20px;
+  height: auto;
+}
+
 .main {
   /* .main-container */
 }
@@ -308,6 +426,9 @@ body.lock {
   /* .sidebar-title */
   /* .sidebar-content */
   /* .sidebar-item */
+}
+.sidebar.lock {
+  overflow: hidden;
 }
 @media (max-width: 768px) {
   .sidebar {
