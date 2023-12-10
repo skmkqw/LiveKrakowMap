@@ -243,9 +243,10 @@ body{
 		align-items: center;
 		@media(max-width:768px){
 			flex-direction: column;
-			gap:0;
+			gap: 0;
 			padding: 30px;
-			margin: auto;		}
+			margin: auto;		
+		}
 	}
 
 
@@ -279,6 +280,18 @@ body{
 			line-height: 70px;
 			display: block;
 			font-size: 33px !important;
+		}
+	}
+
+	&-item
+	{
+		@media(max-width:$break768)
+		{
+			&:last-child
+			{
+				margin-top: 20px;
+				scale: 1.2;
+			}
 		}
 	}
 }
@@ -434,19 +447,8 @@ body{
 			height: auto;
 		}
 	}
-
-	// .login-transfer
-
-	// &-transfer {
-	// }
 }
-// .transfer {
 
-// 	// .transfer-link
-
-// 	&-link {
-// 	}
-// }
 
 
 

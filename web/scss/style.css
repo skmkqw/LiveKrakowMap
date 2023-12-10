@@ -267,6 +267,12 @@ body.lock {
     font-size: 33px !important;
   }
 }
+@media (max-width: 768px) {
+  .menu-item:last-child {
+    margin-top: 20px;
+    scale: 1.2;
+  }
+}
 
 /*--------------------/HEADER--------------------*/
 /*--------------------MAIN--------------------*/

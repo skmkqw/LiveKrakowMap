@@ -15,7 +15,7 @@ if (loginBtn) {
 		body.classList.add('lock')
         sidebar.classList.add('lock')
         menu.classList.remove('active')
-        body.classList.remove('lock')
+		menuBtn.classList.remove('active')
 	})
 	loginExit.addEventListener('click', function () {
 		login.classList.remove('active')
