@@ -8,22 +8,27 @@ const signup = document.querySelector('.signup')
 const logTransf = document.querySelector('.login-transfer-link')
 const signTransf = document.querySelector('.signup-transfer-link')
 
+
 if (loginBtn) {
 	loginBtn.addEventListener('click', function () {
 		login.classList.toggle('active')
 		body.classList.add('lock')
         sidebar.classList.add('lock')
+        menu.classList.remove('active')
+        body.classList.remove('lock')
 	})
 	loginExit.addEventListener('click', function () {
 		login.classList.remove('active')
 		body.classList.remove('lock')
         sidebar.classList.remove('lock')
+
 	})
     if(signExit)
     {
         signExit.addEventListener('click', function () {
             signup.classList.remove('active')
             body.classList.remove('lock')
+            sidebar.classList.remove('lock')
         })
     }
 }

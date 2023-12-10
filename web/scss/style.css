@@ -141,7 +141,7 @@ body.lock {
 .header {
   background-color: #fff;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   border-bottom: 2px solid #3f3f3f;
   z-index: 20;
 }
@@ -217,22 +217,22 @@ body.lock {
   .menu-body {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -130%;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #fff;
     display: flex;
     transition: all 0.3s;
     overflow: auto;
   }
   .menu-body.active {
-    left: 0;
+    left: -2.1%;
   }
 }
 .menu-list {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: clamp(1.25rem, 0.139rem + 2.31vw, 1.875rem);
   align-items: center;
 }
 @media (max-width: 768px) {
@@ -244,7 +244,7 @@ body.lock {
   }
 }
 .menu-link {
-  font-size: 16px;
+  font-size: clamp(0.875rem, 0.653rem + 0.46vw, 1rem);
   color: #484848;
 }
 .menu-link:hover {
@@ -253,7 +253,7 @@ body.lock {
 .menu-link.active {
   background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
   font-weight: bold;
-  font-size: 33px;
+  font-size: clamp(1.375rem, 0.153rem + 2.55vw, 2.063rem);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -264,7 +264,7 @@ body.lock {
     text-align: center;
     line-height: 70px;
     display: block;
-    font-size: 33px;
+    font-size: 33px !important;
   }
 }
 
@@ -290,6 +290,7 @@ body.lock {
   pointer-events: none;
   transition: all 0.3s;
   box-shadow: 0px 5px 10px 9px rgba(34, 60, 80, 0.2);
+  overflow: hidden;
 }
 .login.active {
   visibility: visible;
@@ -305,6 +306,11 @@ body.lock {
 @media (max-height: 480px) {
   .login {
     height: 100vh;
+  }
+}
+@media (max-width: 340px) {
+  .login {
+    max-width: 310px;
   }
 }
 .login-exit {
@@ -413,6 +419,7 @@ body.lock {
   .map {
     margin-top: 70px;
     width: 100vw;
+    min-height: 55vh;
     margin-bottom: 0;
   }
 }
@@ -432,6 +439,7 @@ body.lock {
 }
 @media (max-width: 768px) {
   .sidebar {
+    border-top: 2px solid #3f3f3f;
     flex-direction: column;
   }
 }
@@ -446,7 +454,8 @@ body.lock {
 }
 @media (max-width: 768px) {
   .sidebar-container {
-    padding-top: 30px;
+    padding-top: 0;
+    padding-bottom: 80px;
   }
 }
 .sidebar-title {
@@ -613,7 +622,7 @@ body.lock {
   max-height: 200px;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   border-top: 1px solid #3f3f3f;
   /* .footer-wrapper */
   /* .footer-list */

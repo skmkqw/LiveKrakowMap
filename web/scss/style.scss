@@ -135,7 +135,7 @@ body{
 
 	background-color: $primaryLight;
 	position: fixed;
-	width: 100%;
+	width: 100vw;
 	border-bottom: 2px solid $secondary;
 	z-index: 20;
 
@@ -221,15 +221,15 @@ body{
 		@media(max-width:$break768){
 			position: absolute;
 			top: 0;
-			left: -100%;
+			left: -130%;
 			height: 100vh;
-			width: 100%;
+			width: 100vw;
 			background-color: $primaryLight;
 			display: flex;
 			transition: all 0.3s;
 			overflow: auto;
 			&.active{
-				left: 0;
+				left: -2.1%;
 			}
 		}
 	}
@@ -239,7 +239,7 @@ body{
 	&-list {
 		list-style: none;
 		display: flex;
-		gap: 30px;
+		gap: clamp(1.25rem, 0.139rem + 2.31vw, 1.875rem);
 		align-items: center;
 		@media(max-width:768px){
 			flex-direction: column;
@@ -252,7 +252,7 @@ body{
 	// .menu-link
 
 	&-link {
-		font-size: 16px;
+		font-size: clamp(0.875rem, 0.653rem + 0.46vw, 1rem);
 		color: #484848;
         &:hover
         {
@@ -268,7 +268,7 @@ body{
 				#e2373f
 			  );
 			font-weight: bold;
-			font-size: 33px;
+			font-size: clamp(1.375rem, 0.153rem + 2.55vw, 2.063rem);
 			-webkit-background-clip: text;
 			background-clip: text;
 			color: transparent;
@@ -278,7 +278,7 @@ body{
             text-align: center;
 			line-height: 70px;
 			display: block;
-			font-size: 33px;
+			font-size: 33px !important;
 		}
 	}
 }
@@ -310,6 +310,7 @@ body{
 	pointer-events:none;
 	transition: all 0.3s;
 	box-shadow: 0px 5px 10px 9px rgba(34, 60, 80, 0.2);
+	overflow: hidden;
 	&.active{
 		visibility: visible;
 		opacity: 1;
@@ -321,6 +322,10 @@ body{
 	}
 	@media (max-height:480px){
 		height: 100vh;
+	}
+	@media (max-width:340px)
+	{
+		max-width: 310px;
 	}
 
 	//.login-exit
@@ -471,6 +476,7 @@ body{
 	{
 		margin-top: 70px;
 		width: 100vw;
+		min-height: 55vh;
 		margin-bottom: 0;
 	}
 }
@@ -489,6 +495,7 @@ body{
 
 	@media(max-width:$break768)
 	{
+		border-top: 2px solid $secondary;
 		flex-direction: column;
 	}
 	/* .sidebar-container */
@@ -503,7 +510,8 @@ body{
 		align-items: center;
 		@media(max-width:$break768)
 		{
-			padding-top: 30px;
+			padding-top: 0;
+			padding-bottom: 80px;
 		}
 	}
 
@@ -748,7 +756,7 @@ body{
 	max-height: 200px;
 	position: fixed;
 	bottom: 0;
-	width: 100%;
+	width: 100vw;
 	border-top: 1px solid $secondary;
 
 	/* .footer-wrapper */
