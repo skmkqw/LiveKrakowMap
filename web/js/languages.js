@@ -1,10 +1,10 @@
 // Получаем все ссылки меню
-const langOption = document.querySelectorAll('.menu-link');
+const menuLinks = document.querySelectorAll('.language-item');
 
 // Функция для выделения ссылки при клике
 function handleClick(event) {
   // Удаляем класс active у всех ссылок меню
-  langOption.forEach(link => {
+  menuLinks.forEach(link => {
     link.classList.remove('active');
   });
 
@@ -13,6 +13,6 @@ function handleClick(event) {
 }
 
 // Добавляем обработчик события click к каждой ссылке меню
-langOption.forEach(link => {
+menuLinks.forEach(link => {
   link.addEventListener('click', handleClick);
 });

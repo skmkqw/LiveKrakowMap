@@ -6,14 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="/web/scss/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-img animate__animated animate__bounceInLeft"><img src="/src/img/new-logo.png" alt=""></div>
+            <div class="loader-text animate__animated animate__bounceInRight">Krakow Live Map</div>
+        </div>
+    </div>
     <header class="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <div class="logo-container">
-                    <img src="/src/img/logo-red.png" alt="" class="logo-img">
+                    <img src="/src/img/new-logo.png" alt="" class="logo-img">
                 </div>
                 Krakow Live Map
             </a>
@@ -50,11 +57,11 @@
                 <button type="submit" class="login-submit btn btn-hover">Log In</button>
                 <div class="login-ga">
                     <button class="login-google login-btn">
-                        <img src="img/icons8-google.svg" alt="">
+                        <img src="/src/img/google-logo.png" alt="">
                         Log In with Google
                     </button>
                     <button class="login-apple login-btn">
-                        <img src="/img/apple-logo.svg" alt="">
+                        <img src="/src/img/apple-logo.png" alt="">
                         Log In with Apple
                     </button>
                 </div>
@@ -81,11 +88,11 @@
                 <button type="submit" class="login-submit btn btn-hover">Sigh Up</button>
                 <div class="login-ga">
                     <button class="login-google login-btn">
-                        <img src="img/icons8-google.svg" alt="">
+                        <img src="/src/img/google-logo.png" alt="">
                         Continue with Google
                     </button>
                     <button class="login-apple login-btn">
-                        <img src="/img/apple-logo.svg" alt="">
+                        <img src="src/img/apple-logo.png" alt="">
                         Continue with Apple
                     </button>
                 </div>
@@ -269,6 +276,8 @@
     <script src="/web/js/burger.js"></script>
     <script src="/web/js/menu_links.js"></script>
     <script src="/web/js/login.js"></script>
+    <script src="/web/js/languages.js"></script>
+    <script src="/web/js/preloader.js"></script>
     <script>
         var map = L.map('map').setView([50.062, 19.932], 13);
 
@@ -286,9 +295,9 @@
             const accuracy = position.coords.accuracy;
             
             var redIcon = new L.Icon({
-                iconUrl: '/src/img/pointer-red.png', // URL to the default marker icon
-                iconSize: [25, 41], // Size of the icon
-                iconAnchor: [12, 41], // Point of the icon which corresponds to marker's location
+                iconUrl: '/src/img/new-marker.png', // URL to the default marker icon
+                iconSize: [25, 32], // Size of the icon
+                iconAnchor: [12, 32], // Point of the icon which corresponds to marker's location
                 popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
                 shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png', // URL to the marker's shadow image
                 shadowSize: [41, 41], // Size of the shadow
@@ -297,8 +306,8 @@
             var marker = L.marker([latitude, longitude],{icon:redIcon}).addTo(map);
             marker.bindPopup("<b>You are there!</b>").openPopup();
             var circle = L.circle([latitude, longitude], {
-                color: 'blue',
-                fillColor: '#f03',
+                color: '#eb3941',
+                fillColor: '#ee7e83',
                 fillOpacity: 0.5,
                 radius: accuracy
             }).addTo(map);
@@ -314,6 +323,19 @@
                 alert("Cannot get your location")
             }
         }
+    </script>
+    <script>
+        const loaderText = document.querySelector('.loader-text')
+        const loaderImage = document.querySelector('.loader-img')
+
+        setTimeout(() =>{
+            loaderImage.classList.remove('animate__bounceInLeft')
+            loaderText.classList.remove('animate__bounceInRight')
+
+            loaderText.classList.add('animate__bounceOutLeft', 'animate__delay-0.5s')
+            loaderImage.classList.add('animate__bounceOutRight', 'animate__delay-0.5s')
+        },2000)
+
     </script>
 </body>
 </html>
