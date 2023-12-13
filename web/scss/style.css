@@ -576,12 +576,16 @@ body.lock {
 
 .info {
   /* .info-item */
+  /* .info-title */
   /* .info-list */
 }
 .info-item {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.info-title {
+  font-size: 18px;
 }
 .info-list {
   display: flex;
